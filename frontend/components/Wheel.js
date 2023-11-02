@@ -33,18 +33,20 @@ export  function Wheel(props) {
         <div className={ wheel === 5 ? "cog active" : "cog" }style={{ "--i": 5 }}>{wheel === 5 ? "B" : null}</div>{/* --i is a custom CSS property, no need to touch that nor the style object */}
       </div>
       <div id="keypad">
-        <button id="counterClockwiseBtn" onClick={moveCounterClockwise} >Counter clockwise</button>
-        <button id="clockwiseBtn" onClick={moveClockwise}>Clockwise </button>
+        <button id="counterClockwiseBtn" onClick={()=> moveCounterClockwise()} >Counter clockwise</button>
+        <button id="clockwiseBtn" onClick={() => moveClockwise()}>Clockwise </button>
       </div>
     </div>
   )
 }
 const mapStateToProps = state => {
-console.log(state)
-  return {
-   wheel: state.wheel
-  }
+  console.log(state)
+  return state
+ 
 }
+
+  
+
 
 const mapDispatchProps = {
   moveClockwise,

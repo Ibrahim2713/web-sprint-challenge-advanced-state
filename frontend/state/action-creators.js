@@ -67,14 +67,17 @@ export function postAnswer(postData) {
    dispatch({type: RESET_ANSWERS})
    dispatch({type:SET_INFO_MESSAGE, payload: res.data.message})
    console.log(res)
- 
+      
        
       })
       .catch(err => console.log(err))
-
+      .finally(() => {
+        dispatch(fetchQuiz())
+      })
   }
 }
 export function postQuiz(FormData) {
+
   return function (dispatch) {
     // On successful POST:
     // - Dispatch the correct message to the the appropriate state
@@ -90,9 +93,6 @@ export function postQuiz(FormData) {
    
     .catch(err => {
       console.log(err)
-  })
-  .finally((res) => {
-  
   })
 }
 }

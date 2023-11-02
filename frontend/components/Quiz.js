@@ -16,6 +16,7 @@ if(selectedAnswers.Button1 === true){
 } else if(selectedAnswers.Button2 === true){
   answerId = initialQuizState.state.answers[1].answer_id
 }
+
     const postData = {
       quiz_id: initialQuizState.state.quiz_id,
       answer_id: answerId
@@ -23,7 +24,7 @@ if(selectedAnswers.Button1 === true){
 
  console.log('here')
   postAnswer(postData)
-  fetchQuiz()
+  
   }
 
 
