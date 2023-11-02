@@ -37,6 +37,7 @@ if(selectedAnswers.Button1 === true){
 
   useEffect(() => {
     fetchQuiz()
+    
   },[])
 console.log(props)
 // WHen the submit buttonn is clicked the a new quiz is fetched

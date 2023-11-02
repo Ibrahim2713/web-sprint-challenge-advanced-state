@@ -44,6 +44,8 @@ export function fetchQuiz() {
       .then(res => {
         
           dispatch({type: SET_QUIZ_INTO_STATE, payload: res.data})
+          console.log(res)
+      
       })
       .catch(err => console.log(err.data))
   }
@@ -64,6 +66,8 @@ export function postAnswer(postData) {
       .then(res => {
    dispatch({type: RESET_ANSWERS})
    dispatch({type:SET_INFO_MESSAGE, payload: res.data.message})
+   console.log(res)
+ 
        
       })
       .catch(err => console.log(err))
@@ -76,15 +80,18 @@ export function postQuiz(FormData) {
     // - Dispatch the correct message to the the appropriate state
     // - Dispatch the resetting of the form
     axios.post('http://localhost:9000/api/quiz/new', FormData)
-    .then(res => {
-      dispatch({type: SET_INFO_MESSAGE, payload: `Congrats: "${res.data.question}" is a great question!`})
+    .then(res => 
+      {  dispatch({type: SET_INFO_MESSAGE, payload: `Congrats: "${res.data.question}" is a great question!`})
+    
       console.log(res)
       dispatch({type:RESET_FORM})
+
     })
    
     .catch(err => {
       console.log(err)
-      
+  })
+  .finally((res) => {
   
   })
 }
